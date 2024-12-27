@@ -31,7 +31,7 @@ logo = r"""
 def download_file(url, dest_path):
     try:
         response = requests.get(url, stream=True)
-        response.raise_for_status()  # Raise exception for HTTP errors
+        response.raise_for_status() 
         total_size = int(response.headers.get('content-length', 0))
         block_size = 1024
         progress_bar = tqdm(total=total_size, unit='iB', unit_scale=True, desc="Downloading")
@@ -174,7 +174,7 @@ def extract_rar_with_validation(file_path, extract_to):
         if os.path.exists(extract_to):
             confirm = input(f"Do you want to delete the archive '{file_path}'? (y/n): ").strip().lower()
             if confirm == 'y':
-                os.remove(file_path)  # Видалення архіву
+                os.remove(file_path)  
                 print(f"Archive '{file_path}' successfully deleted.")
             else:
                 print(f"Archive '{file_path}' was not deleted.")
@@ -194,7 +194,7 @@ def extract_rar_with_validation(file_path, extract_to):
 
 if __name__ == "__main__":
     folder_path = 'db/db'
-    rar_url = "https://example.com/your-rar-file.rar"  # Змініть на ваш URL
+    rar_url = "https://drive.usercontent.google.com/download?id=1BUQ39egwLdvFDMNcMpsZwejFQISfc39f&export=download&authuser=0&confirm=t&uuid=b24ea2b3-910b-4bee-a96c-4bfc2d82fc88&at=APvzH3qsoiIWXHBHF22QRluyd7MD%3A1735061553901"  # Змініть на ваш URL
     rar_path = "db.rar"
 
     try:
